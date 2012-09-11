@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[smooth walls of her own ideas]]></title>
+  <link href="http://beckyrussoniello.github.com/atom.xml" rel="self"/>
+  <link href="http://beckyrussoniello.github.com/"/>
+  <updated>2012-09-10T23:53:22-04:00</updated>
+  <id>http://beckyrussoniello.github.com/</id>
+  <author>
+    <name><![CDATA[Becky Russoniello]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
