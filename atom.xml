@@ -4,7 +4,7 @@
   <title><![CDATA[smooth walls of her own ideas]]></title>
   <link href="http://beckyrussoniello.github.com/atom.xml" rel="self"/>
   <link href="http://beckyrussoniello.github.com/"/>
-  <updated>2012-09-11T03:21:14-04:00</updated>
+  <updated>2012-09-11T14:03:45-04:00</updated>
   <id>http://beckyrussoniello.github.com/</id>
   <author>
     <name><![CDATA[Becky Russoniello]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[This site is currently under construction]]></title>
+    <link href="http://beckyrussoniello.github.com/blog/2012/09/11/this-site-is-currently-under-construction/"/>
+    <updated>2012-09-11T14:02:00-04:00</updated>
+    <id>http://beckyrussoniello.github.com/blog/2012/09/11/this-site-is-currently-under-construction</id>
+    <content type="html"><![CDATA[<p>Watch your step!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Human brain != interpreter]]></title>
