@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: sicp | smooth walls of her own ideas]]></title>
+  <link href="http://beckyrussoniello.github.com/blog/categories/sicp/atom.xml" rel="self"/>
+  <link href="http://beckyrussoniello.github.com/"/>
+  <updated>2012-09-11T03:21:14-04:00</updated>
+  <id>http://beckyrussoniello.github.com/</id>
+  <author>
+    <name><![CDATA[Becky Russoniello]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Human brain != interpreter]]></title>
+    <link href="http://beckyrussoniello.github.com/blog/2012/06/14/human-brain-equals-interpreter/"/>
+    <updated>2012-06-14T00:46:00-04:00</updated>
+    <id>http://beckyrussoniello.github.com/blog/2012/06/14/human-brain-equals-interpreter</id>
+    <content type="html"><![CDATA[<p>I'm reading SICP, and gaining many valuable insights into programming theory.  One thing that struck me today:<!-- more -->
+When discussing the modularity of functions, the authors argue that a function "suppresses detail" about the rest of the program while performing its isolated task.</p>
+
+<p>This idea of "suppressing" sounded wrong to me; after all, the human body is modular, but your blood doesn't suppress your bones.  A neighborhood is modular, but a house doesn't suppress the road.</p>
+
+<p>I realized that I am used to thinking about programs as spatial--occupying space on a page. Instead, SICP frames the program as chronological.  Programs are designed to be read by computers, and computers do things sequentially, not spatially.</p>
+
+<p>Modularization allows the computer to think only about what it needs <em>right now</em> to accomplish the task at hand.  You might go for a run when you return from the supermarket, but you don't go running with the groceries in your arms.</p>
+
+<p>This understanding of a program as a chronological sequence of actions relates back to another lesson from SICP -- unlike math, every function (or "procedure") in computer programming must be imperative, executable.  It can't just be descriptive, illustrative.  It's like the difference between a roadmap and a set of directions.</p>
+]]></content>
+  </entry>
+  
+</feed>

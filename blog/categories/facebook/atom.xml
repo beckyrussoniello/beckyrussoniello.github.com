@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: facebook | smooth walls of her own ideas]]></title>
+  <link href="http://beckyrussoniello.github.com/blog/categories/facebook/atom.xml" rel="self"/>
+  <link href="http://beckyrussoniello.github.com/"/>
+  <updated>2012-09-11T03:21:14-04:00</updated>
+  <id>http://beckyrussoniello.github.com/</id>
+  <author>
+    <name><![CDATA[Becky Russoniello]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bug Fix: Ajax and Facebook Connect]]></title>
+    <link href="http://beckyrussoniello.github.com/blog/2010/11/19/bug-fix-ajax-and-facebook-connect/"/>
+    <updated>2010-11-19T02:56:00-05:00</updated>
+    <id>http://beckyrussoniello.github.com/blog/2010/11/19/bug-fix-ajax-and-facebook-connect</id>
+    <content type="html"><![CDATA[<p>Ajax not working with Facebook Connect?  Facebook Connect not working (on a page with Ajax)?  Two bugs, one fix.  Let me 'splain it to you.<!-- more --></p>
+
+<p>See, Facebook's javascript is special.  It wants to be the only javascript on the page.  Well, it wants to be the only type="text/javascript" on the page.</p>
+
+<p>You would probably never think of this because you're probably including your javascripts via helper methods, which doesn't involve typing type="text/javascript" at all.</p>
+
+<p>&lt;%= javascript_include_tag 'prototype' %>
+&lt;%= fb_connect_async_js %>
+(The second one is a Facebooker2 helper method)</p>
+
+<p>However, if you look at the source code for each of these helpers, you will notice that type="text/javascript" is being written both by the Facebook javascript and by the Prototype helper (actually, in the case of Facebook, the source code links to additional javascript).  This means that only one or the other of FB Connect and Ajax can work, depending on which script is loaded first.</p>
+
+<p>Anyway, in order to get everything working, you need to load Facebook's javascript first, and get rid of the 'type' attribute for Prototype. Do this:</p>
+
+<p>&lt;%= fb_connect_async_js %>
+&lt;%= javascript_include_tag 'prototype', :type => nil %></p>
+
+<p>Now you can Ajax out your Facebook app.  Enjoy!</p>
+]]></content>
+  </entry>
+  
+</feed>
