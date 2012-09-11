@@ -19,3 +19,118 @@
 //$sidebar-pad-medium: 15px;
 //$sidebar-pad-wide: 20px;
 //$sidebar-width-wide: 300px;
+
+body{
+	background-color:#010400/*#071907*/;
+	background-image:url('/home/becky/Pictures/me/graveyard3.jpg'); 
+	background-repeat:no-repeat;
+	background-attachment:fixed;
+	background-position: 407px 0px;
+
+	font-family:Garamond, Georgia, serif;
+}
+
+div, aside{
+	float:left;
+	display:inline;
+	color:#010400;
+}
+
+#main{
+	background:rgba(217,228,214,0.7);
+	/*opacity:0.7;*/
+	width:32em/*627px the new-old value..b4 convert to ems*/; /* 660 */
+	height:563px;
+	margin-left:3em; /* was 2em */
+	margin-top:1em;
+	border-radius:1.6em;
+	padding:1em 6em 1em 5em; /*originally was 1em, new-old value was 1 2.8 1 2 */
+	text-align:center;
+}
+
+#sidebar{
+/*	background-color:#D9E4D6;*/
+	background:rgba(217,228,214,0.7);
+	width:186px; /* old val: 210px */
+	height:580px;
+	margin-top:1em;
+	margin-left:290px;
+	border-radius:1.6em;
+	padding:1em 1.4em 1em 1.2em; /* old val: 0.5em */
+	/*text-align:center;*/
+	font-size:14px; /* old val:13px */
+	line-height:1.4em;
+}
+
+ul{
+	list-style-type:none;
+	padding-left:0.2em;
+	margin-top:0.3em;
+}
+
+h1{
+	opacity:1.0;
+	font-size:28px;
+}
+
+h3, h4{
+	margin-bottom:0px;
+}
+
+hr{
+	color:#010400;
+}
+
+#profile-pic{
+	/*width:85px;
+	height:85px;
+	padding:2px;*/
+	border:1px solid #010400;
+	display:inline;
+	float:left;
+	margin:5px;
+}
+
+#toppy{
+	display:block;
+	width:200px;
+	margin-bottom:1em;
+}
+
+#title{
+	width:120px;
+	float:left;
+	display:inline;
+}
+
+a{
+	text-decoration:none;
+}
+
+a:visited{
+	color:#010400;
+}
+
+a:hover{
+	color:#0B2900/*#0E3600*/;
+	/*font-weight:bold;*/
+}
+
+article{
+	font-size:15px;
+	text-align:justify;
+}
+
+.entry-title{
+	font-size:14px;
+	font-weight:bold;
+}
+
+.entry-content{
+	margin:0em;
+	padding:0em;
+}
+
+time, .date{
+	color:#555;
+}
