@@ -4,7 +4,7 @@
   <title><![CDATA[smooth walls of her own ideas]]></title>
   <link href="http://beckyrussoniello.github.com/atom.xml" rel="self"/>
   <link href="http://beckyrussoniello.github.com/"/>
-  <updated>2012-09-12T13:24:55-04:00</updated>
+  <updated>2012-09-20T19:25:47-04:00</updated>
   <id>http://beckyrussoniello.github.com/</id>
   <author>
     <name><![CDATA[Becky Russoniello]]></name>
@@ -45,22 +45,26 @@ When discussing the modularity of functions, the authors argue that a function &
     <link href="http://beckyrussoniello.github.com/blog/2010/11/19/bug-fix-ajax-and-facebook-connect/"/>
     <updated>2010-11-19T02:56:00-05:00</updated>
     <id>http://beckyrussoniello.github.com/blog/2010/11/19/bug-fix-ajax-and-facebook-connect</id>
-    <content type="html"><![CDATA[<p>Ajax not working with Facebook Connect?  Facebook Connect not working (on a page with Ajax)?  Two bugs, one fix.  Let me &#8216;splain it to you.<!-- more --></p>
+    <content type="html"><![CDATA[<!-- layout: post (it was the first thing above) -->
 
-<p>See, Facebook&#8217;s javascript is special.  It wants to be the only javascript on the page.  Well, it wants to be the only type=&#8221;text/javascript&#8221; on the page.</p>
+
+<p>Ajax not working with Facebook Connect?  Facebook Connect not working (on a page with Ajax)?  Two bugs, one fix.  I&#8217;ll explain:<!-- more --></p>
+
+<p>Facebook&#8217;s javascript is <em>special</em>.  It wants to be the only javascript on the page.  Well, it wants to be the only type=&#8221;text/javascript&#8221; on the page.</p>
 
 <p>You would probably never think of this because you&#8217;re probably including your javascripts via helper methods, which doesn&#8217;t involve typing type=&#8221;text/javascript&#8221; at all.</p>
 
-<p>&lt;%= javascript_include_tag &#8216;prototype&#8217; %>
-&lt;%= fb_connect_async_js %>
-(The second one is a Facebooker2 helper method)</p>
+<pre><code>    &lt;%= javascript_include_tag 'prototype' %&gt;
+    &lt;%= fb_connect_async_js %&gt;
+</code></pre>
 
 <p>However, if you look at the source code for each of these helpers, you will notice that type=&#8221;text/javascript&#8221; is being written both by the Facebook javascript and by the Prototype helper (actually, in the case of Facebook, the source code links to additional javascript).  This means that only one or the other of FB Connect and Ajax can work, depending on which script is loaded first.</p>
 
 <p>Anyway, in order to get everything working, you need to load Facebook&#8217;s javascript first, and get rid of the &#8216;type&#8217; attribute for Prototype. Do this:</p>
 
-<p>&lt;%= fb_connect_async_js %>
-&lt;%= javascript_include_tag &#8216;prototype&#8217;, :type => nil %></p>
+<pre><code>    &lt;%= fb_connect_async_js %&gt;
+    &lt;%= javascript_include_tag 'prototype', :type =&gt; nil %&gt;
+</code></pre>
 
 <p>Now you can Ajax out your Facebook app.  Enjoy!</p>
 ]]></content>
@@ -73,7 +77,7 @@ When discussing the modularity of functions, the authors argue that a function &
     <id>http://beckyrussoniello.github.com/blog/2010/11/14/client-question-how-to-share-content-with-a-facebook-business-page</id>
     <content type="html"><![CDATA[<p>Scenario: You own Cindy&#8217;s Salon. You want to &#8220;share&#8221; a link on its Facebook page, but the share button posts to your own profile instead!  How to fix this?<!-- more --></p>
 
-<p>Option A: The Simple, Manual Solution</p>
+<p><strong>Option A: The Simple, Manual Solution</strong></p>
 
 <ol>
 <li>Copy the URL of the page you want to share.</li>
@@ -83,14 +87,15 @@ When discussing the modularity of functions, the authors argue that a function &
 </ol>
 
 
-<p>Option B: The &#8220;Advanced&#8221; Solution (automatically post to business page)</p>
+<p><strong>Option B: The &#8220;Advanced&#8221; Solution (automatically post to business page)</strong></p>
 
 <ol>
 <li>Go to www.facebook.com/notifications.php</li>
 <li>Next to &#8220;Subscribe&#8221;, click &#8220;Via RSS&#8221;</li>
 <li><p>The next page has a URL like this:</p>
 
-<pre><code>http://www.facebook.com/feeds/notifications.php?id=XXXXXX&amp;viewer=XXXXXX&amp;key=YYYYYY&amp;format=rss20
+<pre><code>http://www.facebook.com/feeds/notifications.php?id=XXXXXX
+        &amp;viewer=XXXXXX&amp;key=YYYYYY&amp;format=rss20
 </code></pre></li>
 <li><p>Write down the values for XXXXXX and YYYYYY.</p></li>
 <li>Go to http://apps.facebook.com/rssgraffiti/</li>
@@ -98,7 +103,8 @@ When discussing the modularity of functions, the authors argue that a function &
 <li>Find the &#8220;Feeds&#8221; tab.  Click &#8220;+ Add Feed&#8221;</li>
 <li><p>For &#8220;Feeds URL&#8221;, type this (use your values for XXXXXX and YYYYYY):</p>
 
-<pre><code>http://www.facebook.com/feeds/share_posts.php?id=XXXXXX&amp;viewer=XXXXXX&amp;key=YYYYYY&amp;format=rss20
+<pre><code>http://www.facebook.com/feeds/share_posts.php?id=XXXXXX
+        &amp;viewer=XXXXXX&amp;key=YYYYYY&amp;format=rss20
 </code></pre></li>
 <li><p>Change settings as desired and hit &#8220;Save&#8221;.</p></li>
 </ol>

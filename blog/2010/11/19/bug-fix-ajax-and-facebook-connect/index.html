@@ -1,59 +1,8 @@
-
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>Bug Fix: Ajax and Facebook Connect - smooth walls of her own ideas</title>
-  <meta name="author" content="Becky Russoniello">
-
-  
-  <meta name="description" content="Bug Fix: Ajax and Facebook Connect &emsp; Nov 19th, 2010 Ajax not working with Facebook Connect? Facebook Connect not working (on a page with Ajax &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://beckyrussoniello.github.com/blog/2010/11/19/bug-fix-ajax-and-facebook-connect/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/ender.js"></script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <link href="/atom.xml" rel="alternate" title="smooth walls of her own ideas" type="application/atom+xml">
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <div id="main">
-  <header role="banner"><hgroup>
-  <h1><a href="/">smooth walls of her own ideas</a></h1>
-  
-    <h4>a ruby blog by Becky Russoniello</h4>
-  
-<hr />
-</hgroup>
-
-</header>
-  <!-- nav role="navigation">{ % include navigation.html % }</nav -->
-    <!-- div id="content" -->
-      <!-- div -->
+<!-- layout: default (was first thing above)-->
 <article class="hentry" role="article">
   
-    
-      <span class="title">Bug Fix: Ajax and Facebook Connect</span>
-    
-    
-      <span class="meta">&emsp;
+  <span class="title">Bug Fix: Ajax and Facebook Connect</span>
+    <span class="meta">&emsp;
         
 
 
@@ -68,32 +17,31 @@
 
 <time datetime="2010-11-19T02:56:00-05:00" pubdate data-updated="true">Nov 19<span>th</span>, 2010</time>
         
-      </p>
-    
+      </p></span>
+
+<div class="entry-content"><!-- layout: post (it was the first thing above) -->
 
 
-<div class="entry-content"><p>Ajax not working with Facebook Connect?  Facebook Connect not working (on a page with Ajax)?  Two bugs, one fix.  Let me &#8216;splain it to you.<!-- more --></p>
+<p>Ajax not working with Facebook Connect?  Facebook Connect not working (on a page with Ajax)?  Two bugs, one fix.  I&#8217;ll explain:<!-- more --></p>
 
-<p>See, Facebook&#8217;s javascript is special.  It wants to be the only javascript on the page.  Well, it wants to be the only type=&#8221;text/javascript&#8221; on the page.</p>
+<p>Facebook&#8217;s javascript is <em>special</em>.  It wants to be the only javascript on the page.  Well, it wants to be the only type=&#8221;text/javascript&#8221; on the page.</p>
 
 <p>You would probably never think of this because you&#8217;re probably including your javascripts via helper methods, which doesn&#8217;t involve typing type=&#8221;text/javascript&#8221; at all.</p>
 
-<p>&lt;%= javascript_include_tag &#8216;prototype&#8217; %>
-&lt;%= fb_connect_async_js %>
-(The second one is a Facebooker2 helper method)</p>
+<pre><code>    &lt;%= javascript_include_tag 'prototype' %&gt;
+    &lt;%= fb_connect_async_js %&gt;
+</code></pre>
 
 <p>However, if you look at the source code for each of these helpers, you will notice that type=&#8221;text/javascript&#8221; is being written both by the Facebook javascript and by the Prototype helper (actually, in the case of Facebook, the source code links to additional javascript).  This means that only one or the other of FB Connect and Ajax can work, depending on which script is loaded first.</p>
 
 <p>Anyway, in order to get everything working, you need to load Facebook&#8217;s javascript first, and get rid of the &#8216;type&#8217; attribute for Prototype. Do this:</p>
 
-<p>&lt;%= fb_connect_async_js %>
-&lt;%= javascript_include_tag &#8216;prototype&#8217;, :type => nil %></p>
+<pre><code>    &lt;%= fb_connect_async_js %&gt;
+    &lt;%= javascript_include_tag 'prototype', :type =&gt; nil %&gt;
+</code></pre>
 
 <p>Now you can Ajax out your Facebook app.  Enjoy!</p>
 </div>
-
-
-<!-- href="" -->
 
   <footer>
     <p class="meta">
@@ -158,45 +106,3 @@
   { % endif % } -->
   
 
-
-    <!-- /div -->
-  </div>
-
-<aside id="sidebar">
-<div id="toppy">
-<h3>Becky Russoniello</h3>
-<hr/>
-<p id="title">Ruby on Rails developer</p>
-<img id="profile-pic" src="http://graph.facebook.com/6831286/picture?type=square" />
-</div>
-<h4>My Projects</h4>
-<ul>
-<li><a href="http://evening-plateau-1198.herokuapp.com">Spambot Freud</a></li>
-<li><a href="http://limitless-reaches-5456.herokuapp.com">Multi-City Job Search</a></li>
-<li><a href="http://powerful-spire-8121.herokuapp.com">Facebook Status Archive</a></li>
-<li><a href="http://gist.github.com/beckyrussoniello">Gists</a></li>
-</ul>
-
-<h4>Tags</h4>
-<ul>
-<li><a href="http://beckyrussoniello.posterous.com/tag/ruby">ruby</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/bugfix">bug fix</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/programminglanguages">programming languages</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/reframingtheissue">reframing the issue</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/rubyonrails">rails</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/rubygems">gems</a></li>
-<li><a href="http://beckyrussoniello.posterous.com/tag/hci">ux</a></li>
-<li><a href="http://beckyrussoniello.posterous.com">View All Tags</a></li>
-</ul>
-
-<h4>Social</h4>
-<ul>
-<li><a href="http://facebook.com/becky.russoniello">Facebook</a></li>
-<li><a href="http://twitter.com/httpness">Twitter</a></li>
-<li><a href="https://github.com/beckyrussoniello">Github</a></li>
-</ul>
-</aside>
-  <!-- footer role="contentinfo">{ % include footer.html % }</footer>
-  { % include after_footer.html % } -->
-</body>
-</html>
